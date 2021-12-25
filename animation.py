@@ -11,10 +11,16 @@ game_display = pygame.display.set_mode(window_size)
 
 #loads images
 instructions_bg = pygame.image.load("instructions.png")
-
+prologue_bg = pygame.image.load("prologue.png")
+hallway_bg = pygame.image.load("hallway4.jpg")
+hallway_bg = pygame.transform.scale(hallway_bg, window_size)
+hachiko_neutral = pygame.image.load("hachiko.png")
+hachiko_neutral = pygame.transform.scale(hachiko_neutral, (280, 372))
 #defines some colours
 white = (255, 255, 255)
 black = (0, 0, 0)
+off_white = (239, 222, 205)
+pink = (255, 0, 85)
 
 #defines some variables for displaying text
 font_file = "PlayfairDisplayRegular.ttf"
@@ -107,6 +113,12 @@ def button(msg, x, y, length, height, border, border_colour, button_colour, acti
                 
             if action == "part 12 d":
                 part_12("d")
+            
+            if action == "part 13":
+                part_13()
+            
+            if action == "part 14":
+                part_14()
                 
             if action == "ending 1":
                 ending_1()
@@ -139,14 +151,41 @@ def random_num(probability):
 #draws dialogue box
 def dialogue_box():
     box_x = 50
-    box_y = 400
+    box_y = 425
     box_length = 700
     box_height = 200
     
-    pygame.draw.rect(game_display, (239, 222, 205), (box_x, box_y, box_length, box_height), border_radius = 30)
-    pygame.draw.rect(game_display, (255, 0, 85), (box_x, box_y, box_length, box_height), width = 3, border_radius = 30)
+    pygame.draw.rect(game_display, off_white, (box_x, box_y, box_length, box_height), border_radius = 30)
+    pygame.draw.rect(game_display, pink, (box_x, box_y, box_length, box_height), width = 3, border_radius = 30)
     
-#defines instructions section
+def speaker_box(who):
+    x = 50
+    y = 375
+    height = 40
+    if who == "hachiko":
+        length = 115
+    
+    pygame.draw.rect(game_display, off_white, (x, y, length, height), border_radius = 12)
+    pygame.draw.rect(game_display, pink, (x, y, length, height), width = 3, border_radius = 12)
+     
+    text = render_text(who, font_file, pink, 20)
+    text_pos = text_rect(text)
+    text_pos.center = ( (x + (length/2)), (y + (height/2)))
+    game_display.blit(text, text_pos)
+        
+def goodwill_meter(filled):
+    x = 550
+    y = 50
+    length = 200
+    height = 20
+    pygame.draw.rect(game_display, black, (x, y, length, height), border_radius = 30)
+    text = render_text("goodwill: ", font_file, white, 18)
+    game_display.blit(text, (450, 45))    
+    
+    pygame.draw.rect(game_display, white, (x, y, filled, height), border_radius = 30)
+    pygame.draw.rect(game_display, pink, (x, y, length, height), width = 2, border_radius = 30)
+
+
 def instructions():
     running = True
     while running:
@@ -154,7 +193,7 @@ def instructions():
         #blit background
         game_display.blit(instructions_bg, (0, 0))
         
-        button("next", 350, 570, 100, 75, 1, (255, 255, 255), (0, 0, 255), "prologue", 20, black)
+        button("next", 325, 570, 150, 50, 2, pink, off_white, "prologue", 20, black)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -165,12 +204,9 @@ def instructions():
 def prologue():
     running = True
     while running:
-        game_display.fill(black)
-        text = render_text("prologue", font_file, white, font_size)
-        game_display.blit(text, (50, 50))
-        
+        game_display.blit(prologue_bg, (0, 0))
        
-        button("next", 675, 300, 100, 75, 1, (255, 255, 255), (0, 0, 255), "part 1", 20, black)
+        button("next", 425, 550, 150, 50, 2, pink, off_white, "part 1", 20, black)
 
         
         for event in pygame.event.get():
@@ -183,14 +219,19 @@ def prologue():
 def part_1():
     running = True
     while running:
-        game_display.fill(black)
+        game_display.blit(hallway_bg, (0, 0))
+
+        game_display.blit(hachiko_neutral, (100, 100))
         dialogue_box()
+        speaker_box("hachiko")
+        goodwill_meter(100)
+     
         text = render_text("part 1", font_file, white, font_size)
         game_display.blit(text, (50, 50))
         
 
-        button("yes", 400, 500, 100, 75, 1, white, (0, 0, 255), "part 2", 20, black)
-        button("no", 300, 500, 100, 75, 1, white, (0, 0, 255), "ending 1", 20, black)        
+        button("yes", 400, 300, 100, 75, 1, white, (0, 0, 255), "part 2", 20, black)
+        button("no", 300, 300, 100, 75, 1, white, (0, 0, 255), "ending 1", 20, black)        
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
