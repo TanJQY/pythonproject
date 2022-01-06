@@ -38,6 +38,18 @@ part8_line2 = dialogues.readline()
 part9_line1 = dialogues.readline()
 part9_line2 = dialogues.readline()
 
+part10_line1 = dialogues.readline()
+part10_line2 = dialogues.readline()
+part10_line3 = dialogues.readline()
+part10_line4 = dialogues.readline()
+part10_line5 = dialogues.readline()
+part10_line6 = dialogues.readline()
+part10_line7 = dialogues.readline()
+part10_line8 = dialogues.readline()
+part10_line9 = dialogues.readline()
+
+riddle = dialogues.readline()
+
 #loads images
 instructions_bg = pygame.image.load("instructions.png")
 prologue_bg = pygame.image.load("prologue.png")
@@ -61,6 +73,8 @@ king_angry = pygame.image.load("angry king.png")
 king_angry = pygame.transform.scale(king_angry, (250, 372))
 king_neutral = pygame.image.load("king.png")
 king_neutral = pygame.transform.scale(king_neutral, (250, 372))
+king_happy = pygame.image.load("happy king.png")
+king_happy = pygame.transform.scale(king_happy, (250, 372))
 
 #defines some colours
 white = (255, 255, 255)
@@ -97,10 +111,10 @@ def text_rect(text):
 
 #draws buttons, directs user to different sections depending on the button pressed
 #goodwill paramater needed to pass on information about the goodwill meter from part to part
-def button(msg, x, y, length, height, border, border_colour, button_colour, action, font_size, font_colour, goodwill):
+def button(msg, x, y, length, height, border, radius, border_colour, button_colour, action, font_size, font_colour, goodwill):
     
     #draws button
-    pygame.draw.rect(game_display, button_colour, (x, y, length, height), width = 0, border_radius = 30)
+    pygame.draw.rect(game_display, button_colour, (x, y, length, height), width = 0, border_radius = radius)
     
     #defines some variables related to the mouse
     mouse_pos = pygame.mouse.get_pos()
@@ -108,7 +122,7 @@ def button(msg, x, y, length, height, border, border_colour, button_colour, acti
     
     #if the mouse is hovering on the button draw a border 
     if x + length > mouse_pos[0] > x and y + height > mouse_pos[1] > y:
-        pygame.draw.rect(game_display, border_colour, (x, y, length, height), width = border, border_radius = 30)
+        pygame.draw.rect(game_display, border_colour, (x, y, length, height), width = border, border_radius = radius)
         
         if click[0] == 1:
             #checks and plays which part should happen next
@@ -160,6 +174,39 @@ def button(msg, x, y, length, height, border, border_colour, button_colour, acti
             if action == "part 10":
                 part_10(goodwill)
             
+            if action == "part 10.1a":
+                part_10_1("a", goodwill)
+            
+            if action == "part 10.1b":
+                part_10_1("b", goodwill)
+            
+            if action == "part 10.1c":
+                part_10_1("c", goodwill)
+            
+            if action == "part 10.2":
+                part_10_2(goodwill)
+            
+            if action == "part 10.3a":
+                part_10_3("a", goodwill)
+            
+            if action == "part 10.3b":
+                part_10_3("b", goodwill)
+            
+            if action == "part 10.3c":
+                part_10_3("c", goodwill)
+            
+            if action == "part 10.4":
+                part_10_4(goodwill)
+            
+            if action == "part 10.5a":
+                part_10_5("a", goodwill)
+            
+            if action == "part 10.5b":
+                part_10_5("b", goodwill)
+            
+            if action == "part 10.5c":
+                part_10_5("c", goodwill)
+                
             if action == "part 11":
                 part_11(goodwill)
             
@@ -382,8 +429,8 @@ def part_1():
         display_dialogue(part1_line)
         
         #draws buttons
-        button("Yes, I am.", 100, 530, 600, 40, 2, black, pink, "part 2", 18, white, filled_amount)
-        button("Sorry, I think you have the wrong person.", 100, 575, 600, 40, 2, black, pink, "ending 1", 18, white, filled_amount)        
+        button("Yes, I am.", 100, 530, 600, 40, 2, 30, black, pink, "part 2", 18, white, filled_amount)
+        button("Sorry, I think you have the wrong person.", 100, 575, 600, 40, 2, 30, black, pink, "ending 1", 18, white, filled_amount)        
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -439,8 +486,8 @@ def part_2_1(goodwill):
         goodwill_meter(goodwill)
         
         #draws buttons
-        button("Try to escape", 100, 545, 600, 40, 2, black, pink, "part 3 a", 18, white, filled_amount)
-        button("Follow instructions", 100, 590, 600, 40, 2, black, pink, "part 3 b", 18, white, filled_amount)        
+        button("Try to escape", 100, 545, 600, 40, 2, 30, black, pink, "part 3 a", 18, white, filled_amount)
+        button("Follow instructions", 100, 590, 600, 40, 2, 30, black, pink, "part 3 b", 18, white, filled_amount)        
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -465,8 +512,8 @@ def part_3(part, goodwill):
             text = render_text("Pick a uniform", font_file, white, 20)
             game_display.blit(text, (50, 50))
             
-            button("maid", 450, 200, 250, 250, 2, white, white, "part 4", 20, black, goodwill)
-            button("butler", 100, 200, 250, 250, 2, white, white, "part 4", 20, black, goodwill)        
+            button("maid", 450, 200, 250, 250, 2, 30, white, white, "part 4", 20, black, goodwill)
+            button("butler", 100, 200, 250, 250, 2, 30, white, white, "part 4", 20, black, goodwill)        
             
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -488,9 +535,9 @@ def part_4(goodwill):
         
         goodwill_meter(goodwill)
         
-        button("sing a song", 100, 525, 600, 30, 2, black, pink, "part 5 a", 16, white, goodwill)
-        button("tap his shoulder gently", 100, 560, 600, 30, 2, black, pink, "part 5 b", 16, white, goodwill)
-        button("ignore him", 100, 595, 600, 30, 2, black, pink, "part 5 c", 16, white, goodwill)        
+        button("sing a song", 100, 525, 600, 30, 2, 30, black, pink, "part 5 a", 16, white, goodwill)
+        button("tap his shoulder gently", 100, 560, 600, 30, 2, 30, black, pink, "part 5 b", 16, white, goodwill)
+        button("ignore him", 100, 595, 600, 30, 2, 30, black, pink, "part 5 c", 16, white, goodwill)        
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -587,7 +634,7 @@ def part_5_1(part, goodwill):
                 speaker_box("King")
                 display_dialogue(part5c_line3)
                 
-        button("next", 350, 550, 100, 50, 2, black, pink, "part 6", 18, white, filled_amount)
+        button("next", 350, 550, 100, 50, 2, 30, black, pink, "part 6", 18, white, filled_amount)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -608,8 +655,8 @@ def part_6(goodwill):
         
         goodwill_meter(goodwill)
         
-        button("Stop and help", 100, 540, 600, 40, 2, black, pink, "part 7 a", 18, white, goodwill)
-        button("Continue walking", 100, 585, 600, 40, 2, black, pink, "part 7 b", 18, white, goodwill)    
+        button("Stop and help", 100, 540, 600, 40, 2, 30, black, pink, "part 7 a", 18, white, goodwill)
+        button("Continue walking", 100, 585, 600, 40, 2, 30, black, pink, "part 7 b", 18, white, goodwill)    
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -634,7 +681,7 @@ def part_7(part, goodwill):
             dialogue_box()
             display_dialogue(part7_line3)
             goodwill_meter(filled_amount)
-            button("next", 350, 500, 100, 50, 2, black, pink, "part 9 b", 18, white, filled_amount)
+            button("next", 350, 500, 100, 50, 2, 30, black, pink, "part 9 b", 18, white, filled_amount)
             
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -662,8 +709,8 @@ def part_7_1(goodwill):
         speaker_box("Hachiko")
         display_dialogue(part7_line2)
         
-        button("Yes that would be lovely.", 100, 530, 600, 40, 2, black, pink, "part 8 a", 18, white, filled_amount)
-        button("No, thank you.", 100, 575, 600, 40, 2, black, pink, "part 8 b", 18, white, filled_amount)   
+        button("Yes that would be lovely.", 100, 530, 600, 40, 2, 30, black, pink, "part 8 a", 18, white, filled_amount)
+        button("No, thank you.", 100, 575, 600, 40, 2, 30, black, pink, "part 8 b", 18, white, filled_amount)   
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -689,8 +736,6 @@ def part_8(part, goodwill):
             dialogue_box()
             speaker_box("Hachiko")
             display_dialogue(part8_line1)
-                   
-            button("next", 350, 530, 100, 50, 2, black, pink, "part 9 a", 18, white, filled_amount)
         
         else:
             game_display.blit(hachiko_angry, (100, 100))
@@ -698,7 +743,7 @@ def part_8(part, goodwill):
             speaker_box("Hachiko")
             display_dialogue(part8_line2)
             
-            button("next", 350, 530, 100, 50, 2, black, pink, "part 9 a", 18, white, filled_amount)
+        button("next", 350, 530, 100, 50, 2, 30, black, pink, "part 9 a", 18, white, filled_amount)
         
         goodwill_meter(filled_amount)
         
@@ -733,7 +778,7 @@ def part_9(part, goodwill):
             display_dialogue(part9_line2)
             
         goodwill_meter(filled_amount)
-        button("next", 350, 530, 100, 50, 2, black, pink, "part 10", 18, white, filled_amount)
+        button("next", 350, 530, 100, 50, 2, 30, black, pink, "part 10", 18, white, filled_amount)
 
         
         for event in pygame.event.get():
@@ -747,25 +792,217 @@ def part_9(part, goodwill):
 def part_10(goodwill):
     running = True
     while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
         
-        game_display.fill(black)
+        pygame.draw.rect(game_display, white, (300, 30, 200, 75), width = 0, border_radius = 20)        
+        text = render_text("Pick a card", font_file, black, font_size)
+        game_display.blit(text, (340, 50))
         
-        text = render_text("part 10", font_file, white, font_size)
-        game_display.blit(text, (50, 50))
+        button("card 1", 50, 160, 200, 400, 3, 0, black, white, "part 10.1a", 18, black, goodwill)
+        button("card 2", 300, 160, 200, 400, 3, 0, black, white, "part 10.1b", 18, black, goodwill)
+        button("card 3", 550, 160, 200, 400, 3, 0, black, white, "part 10.1c", 18, black, goodwill)
         
-        button("next", 675, 500, 100, 75, 1, (255, 255, 255), (0, 0, 255), "part 11", 20, black)
+        button("next", 675, 500, 100, 75, 1, 30, (255, 255, 255), (0, 0, 255), "part 11", 20, black, goodwill)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+                    
+        pygame.display.update()
+
+
+def part_10_1(part, goodwill):
+    running = True
+    
+    filled_amount = goodwill
+    if part == "a":
+        filled_amount -= 10
+    
+    elif part == "b":
+        filled_amount -= 15
+    
+    else:
+        filled_amount += 10
+
+    while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
+        
+        if part == "a":
+            game_display.blit(king_angry, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line1)
+        
+        elif part == "b":
+            game_display.blit(king_angry, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line2)
+            
+        else:
+            game_display.blit(king_happy, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line3)
+        
+        goodwill_meter(filled_amount)
+        button("next", 350, 550, 100, 50, 2, 30, black, pink, "part 10.2", 18, white, filled_amount)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                
+    
+        pygame.display.update()
+
+def part_10_2(goodwill):
+    running = True
+    while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
+        
+        pygame.draw.rect(game_display, white, (300, 30, 200, 75), width = 0, border_radius = 20)        
+        text = render_text("Pick a card", font_file, black, font_size)
+        game_display.blit(text, (340, 50))
+        
+        button("card 1", 50, 160, 200, 400, 3, 0, black, white, "part 10.3a", 18, black, goodwill)
+        button("card 2", 300, 160, 200, 400, 3, 0, black, white, "part 10.3b", 18, black, goodwill)
+        button("card 3", 550, 160, 200, 400, 3, 0, black, white, "part 10.3c", 18, black, goodwill)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                    
+        pygame.display.update()
+        
+def part_10_3(part, goodwill):
+    running = True
+    
+    filled_amount = goodwill
+    if part == "a":
+        filled_amount += 8
+    
+    elif part == "b":
+        filled_amount -= 10
+    
+    else:
+        filled_amount += 8
+
+    while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
+        
+        if part == "a":
+            game_display.blit(king_happy, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line4)
+        
+        elif part == "b":
+            game_display.blit(king_angry, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line5)
+            
+        else:
+            game_display.blit(king_angry, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line6)
+        
+        goodwill_meter(filled_amount)
+        button("next", 350, 550, 100, 50, 2, 30, black, pink, "part 10.4", 18, white, filled_amount)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                
+    
+        pygame.display.update()
+
+def part_10_4(goodwill):
+    running = True
+    while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
+        
+        pygame.draw.rect(game_display, white, (300, 30, 200, 75), width = 0, border_radius = 20)        
+        text = render_text("Pick a card", font_file, black, font_size)
+        game_display.blit(text, (340, 50))
+        
+        button("card 1", 50, 160, 200, 400, 3, 0, black, white, "part 10.5a", 18, black, goodwill)
+        button("card 2", 300, 160, 200, 400, 3, 0, black, white, "part 10.5b", 18, black, goodwill)
+        button("card 3", 550, 160, 200, 400, 3, 0, black, white, "part 10.5c", 18, black, goodwill)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                    
+        pygame.display.update()
+        
+def part_10_5(part, goodwill):
+    running = True
+    
+    filled_amount = goodwill
+    if part == "a":
+        filled_amount -= 8
+    
+    elif part == "b":
+        filled_amount -= 10
+    
+    else:
+        filled_amount += 8
+
+    while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
+        
+        if part == "a":
+            game_display.blit(king_angry, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line7)
+        
+        elif part == "b":
+            game_display.blit(king_angry, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line8)
+            
+        else:
+            game_display.blit(king_happy, (100, 100))
+            dialogue_box()
+            speaker_box("King")
+            display_dialogue(part10_line9)
+        
+        goodwill_meter(filled_amount)
+        button("next", 350, 550, 100, 50, 2, 30, black, pink, "part 11", 18, white, filled_amount)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                
+    
         pygame.display.update()
 
 def part_11(goodwill):
     running = True
+    action = ""
+    score = int(0)    
     while running:
-        action = ""
-        score = int(1)
-        game_display.fill(black)
+        #displays background
+        game_display.fill(white)
+        game_display.blit(throne_room_bg, (0, 0))   
         
         text = render_text("part 11", font_file, white, font_size)
         game_display.blit(text, (50, 50))
@@ -779,7 +1016,7 @@ def part_11(goodwill):
         else:
             action = "part 12 d"
             
-        button("next", 675, 500, 100, 75, 1, (255, 255, 255), (0, 0, 255), action, 20, black)
+        button("next", 675, 500, 100, 75, 1, 30, black, pink, action, 18, white, goodwill)
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
