@@ -1,7 +1,8 @@
 Hello, I am Hachiko, the head butler to his majesty king George III. You must be the king's new attendant. 
 As most people would be, Hachiko's mood seems to be better after agreeing with him.
 Alright, now you may head into the changeroom to your right and change into one of the uniforms there. Then you must head to his majesty's bedchamber and wake him.
-So, you have entered his majesty's chambers. He must be woken. How will you go about this?
+You change into your uniform and enter his majesty's chambers.
+Now, his majesty must be woken. How will you go about this?
 You start to sing an old folk song your mother taught you. The sleeping king soon wakes up.
 Your voice is very agreeable. Go to the throne room and wait for me there. 
 WHAT IS THAT HORRID SCREECHING! Ah I see it is you. Hasn't anyone told you how horrid your voice is? Go to the throne room and wait for me there.
@@ -9,7 +10,7 @@ You walk up to the sleeping king and tap his shoulder lightly once. The sleeping
 HOW DARE YOU TOUCH ME! YOUR LOWLY HANDS ARE NOT EVEN QUALIFIED TO TOUCH MY FEET! GO TO THE THRONE ROOM AND WAIT FOR ME THERE!
 You decide to ignore the sleeping king and instead start cleaning his disorderly chambers. A maid enters the room with an aromatic breakfast tray. The aroma wakes the sleeping king.
 How lovely it is to wake up to food! You there, good job cleaning! Go to the throne room and wait for me there.
-How lovely it is to wake up to food! However, you there, HOW DARE YOU TOUCH MY POSSESSIONS WITHOUT MY PERMISSION! Go to the throne room and wait for me there.
+How lovely it is to wake up to food! However, you there, HOW DARE YOU TOUCH MY THINGS WITHOUT MY PERMISSION! Go to the throne room and wait for me there.
 As you walk through the halls, you notice a Hachiko on the ground surrounded by scattered papers. He seems to have fallen. What will you do?
 You stop and help Hachiko gather the papers. You then ask him where they need to be.
 Ah, thank you, these need to be brought to his majesty's study. As thanks, would you like to hear a story?
@@ -27,4 +28,18 @@ Ugh, again, deploy the guards I guess.
 Ah these commoners know nothing. Last time t'was a werewolf, now a witch. Let them deal with it on their own for once.
 ASKING FOR LOWER TAXES AGAIN!! NO WAY! TAXES ARE LOW ENOUGH, IN FACT LET'S INCREASE TAXES!
 WONDERFUL!! Barnaby never disappoints!!
+It is now time for the king's luncheon and he has requested that you choose the menu. To make things simpler, the chef has already prepared 3 options, simply pick one of the three.
 His majesty is fickle and isn't very pleasant to be around as you are likely to be prosecuted should you make a wrong choice. Whichever describes the king best is what he will like best.
+Heavens! This food is disgusting, WHAT ON EARTH DID YOU CHOOSE!??
+OH MY! Today's luncheon is delicious! Wasn't the kitchen asking for more funds, well give it to them as a reward.
+After luncheon, is my play time, what shall I do today?
+That sounds like a terrible idea. You are dismissed, go clean or whatever.
+That sounds like a great idea. You are dismissed.
+Your work for today is done. Others will handle the king's night routine. Congradulations for making it through this day. Click the "Next" button for your fate.
+As you were being escorted out of the palace, you passed under a window. A maid there was holding a pot of roses which she then let go of accidentally. Thus leading to your tragic demise as the pot fell directly on your head. Failure. 
+You successfully escape the palace. You then live out the rest of your life working as a waiter in a restaurant.
+You did not escape successfully. You were caught by a guard and mistaken for a trespasser which led to your execution.
+The king has decided to execute you for his own amusement and no one likes you enough to stop him.
+The king has decided not to execute you. Congradulations, you have survived today! But will you survive the next day?
+Select a uniform by clicking a button above the uniforms shown.
+Select a card by clicking a button above the cards.
