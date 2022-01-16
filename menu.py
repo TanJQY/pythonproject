@@ -2,7 +2,7 @@ import pygame
 
 class Menu():
     def __init__(self, game):
-         self.game = game
+        self.game = game
         self.mid_w, self.mid_h = self.game.DISPLAY_W / 2, self.game.DISPLAY_H / 2
         self.run_display = True
         self.cursor_rect = pygame.Rect(0, 0, 20, 20)
@@ -57,7 +57,7 @@ class MainMenu(Menu):
                     self.cursor_rect.midtop = (self.startx + self.offset, self.starty)
                     self.state = 'Start'
                 elif self.state == 'Credits':
-                    self.cursor rect.midtop = (self.optionsx + self.offset, self.optionsy)
+                    self.cursorrect.midtop = (self.optionsx + self.offset, self.optionsy)
                     self.state = 'Options'
 
     def check_input(self):
