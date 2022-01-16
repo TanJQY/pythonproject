@@ -37,9 +37,9 @@ That sounds like a terrible idea. You are dismissed, go clean or whatever.
 That sounds like a great idea. You are dismissed.
 Your work for today is done. Others will handle the king's night routine. Congradulations for making it through this day. Click the "Next" button for your fate.
 As you were being escorted out of the palace, you passed under a window. A maid there was holding a pot of roses which she then let go of accidentally. Thus leading to your tragic demise as the pot fell directly on your head. Failure. 
-You successfully escape the palace. You then live out the rest of your life working as a waiter in a restaurant.
-You did not escape successfully. You were caught by a guard and mistaken for a trespasser which led to your execution.
-The king has decided to execute you for his own amusement and no one likes you enough to stop him.
-The king has decided not to execute you. Congradulations, you have survived today! But will you survive the next day?
+You successfully escape the palace. You then live out the rest of your life working as a waiter in a restaurant. Success.
+You did not escape successfully. You were caught by a guard and mistaken for a trespasser which led to your execution. Failure.
+The king has decided to execute you for his own amusement and no one likes you enough to stop him. Failure
+The king has decided not to execute you. Congradulations, you have survived today! But will you survive the next day? Success?
 Select a uniform by clicking a button above the uniforms shown.
 Select a card by clicking a button above the cards.

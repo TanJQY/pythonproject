@@ -77,30 +77,41 @@ card_instructions = dialogues.readline()
 #loads images
 instructions_bg = pygame.image.load("instructions.png")
 prologue_bg = pygame.image.load("prologue.png")
+
 hallway_bg = pygame.image.load("hallway4.jpg")
 hallway_bg = pygame.transform.scale(hallway_bg, window_size)
+
 bedroom_bg = pygame.image.load("bedroom.jpg")
 bedroom_bg = pygame.transform.scale(bedroom_bg, window_size)
+
 throne_room_bg = pygame.image.load("throne room.jpg")
 throne_room_bg = pygame.transform.scale(throne_room_bg, window_size)
+
 dining_hall_bg = pygame.image.load("dining hall.jpg")
 dining_hall_bg = pygame.transform.scale(dining_hall_bg, window_size)
 
 hachiko_neutral = pygame.image.load("hachiko.png")
 hachiko_neutral = pygame.transform.scale(hachiko_neutral, (250, 372))
+
 hachiko_angry = pygame.image.load("angry hachiko.png")
 hachiko_angry = pygame.transform.scale(hachiko_angry, (250, 372))
 
 pj_king_angry = pygame.image.load("angry pj king.png")
 pj_king_angry = pygame.transform.scale(pj_king_angry, (280, 372))
+
 pj_king_happy = pygame.image.load("happy pj king.png")
 pj_king_happy = pygame.transform.scale(pj_king_happy, (280, 372))
+
 king_angry = pygame.image.load("angry king.png")
 king_angry = pygame.transform.scale(king_angry, (250, 372))
+
 king_neutral = pygame.image.load("king.png")
 king_neutral = pygame.transform.scale(king_neutral, (250, 372))
+
 king_happy = pygame.image.load("happy king.png")
 king_happy = pygame.transform.scale(king_happy, (250, 372))
+
+story_bg = pygame.image.load("story.png")
 
 poisoned_card = pygame.image.load("poison card.png")
 haunted_card = pygame.image.load("ghost card.png")
@@ -119,8 +130,21 @@ uniform1 = pygame.transform.scale(uniform1, (223, 362))
 uniform2 = pygame.image.load("maid.png")
 uniform2 = pygame.transform.scale(uniform2, (220, 354))
 
+pickle = pygame.image.load("pickle.png")
+pheasant = pygame.image.load("pheasant.png")
+prosciutto = pygame.image.load("prosciutto.png")
+
 rose_pot = pygame.image.load("roses.png")
 rose_pot = pygame.transform.scale(rose_pot, (300, 300))
+
+restaurant = pygame.image.load("restaurant.png")
+restaurant = pygame.transform.scale(restaurant, (366, 326))
+
+guillotine = pygame.image.load("guillotine.png")
+guillotine = pygame.transform.scale(guillotine, (301, 389))
+
+bed = pygame.image.load("bed.png")
+bed = pygame.transform.scale(bed, (440, 362))
 
 #defines some colours
 white = (255, 255, 255)
@@ -222,6 +246,9 @@ def button(msg, x, y, length, height, border, radius, border_colour, button_colo
             if action == "part 7.1":
                 part_7_1(goodwill)
             
+            if action == "part 7.2":
+                part_7_2(goodwill)
+            
             if action == "part 8 a":
                 part_8("a", goodwill)
             
@@ -302,6 +329,12 @@ def button(msg, x, y, length, height, border, radius, border_colour, button_colo
             
             if action == "ending 3":
                 ending_3(goodwill)
+            
+            if action == "ending 4":
+                ending_4(goodwill)
+            
+            if action == "ending 5":
+                ending_5(goodwill)
             
       
     #renders text
@@ -452,9 +485,6 @@ def instructions():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-            
-            if pygame.mouse.get_pressed() == (1, 0, 0):
-                prologue()
         
         pygame.display.update()
 
@@ -806,7 +836,7 @@ def part_7_1(goodwill):
         
         goodwill_meter(goodwill)
         
-        button("Yes that would be lovely.", 400, 230, 350, 40, 2, 30, black, pink, "part 8 a", 16, white, goodwill)
+        button("Yes that would be lovely.", 400, 230, 350, 40, 2, 30, black, pink, "part 7.2", 16, white, goodwill)
         button("No, thank you.", 400, 280, 350, 40, 2, 30, black, pink, "part 8 b", 16, white, goodwill)   
         
         for event in pygame.event.get():
@@ -816,6 +846,22 @@ def part_7_1(goodwill):
     
         pygame.display.update()
         
+def part_7_2(goodwill):
+    running = True
+    while running:
+        #displays background
+        game_display.fill(white)
+        game_display.blit(story_bg, (0, 0))
+        
+        button("Next", 300, 570, 150, 50, 2, 30, black, pink, "part 8 a", 20, white, goodwill)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        
+        pygame.display.update()
+    
+    
 def part_8(part, goodwill):
     running = True
     filled_amount = goodwill
@@ -1136,10 +1182,15 @@ def part_11_1(goodwill):
         display_dialogue(riddle)
         
         goodwill_meter(goodwill)
-        button("pheasant", 50, 160, 200, 50, 3, 0, black, white, "part 12 a", 18, black, goodwill)
-        button("pickle", 300, 160, 200, 50, 3, 0, black, white, "part 12 b", 18, black, goodwill)
-        button("prosciutto", 550, 160, 200, 50, 3, 0, black, white, "part 12 a", 18, black, goodwill)
+        
+        button("pheasant", 50, 100, 200, 50, 3, 30, pink, white, "part 12 a", 18, black, goodwill)
+        button("pickle", 300, 100, 200, 50, 3, 30, pink, white, "part 12 b", 18, black, goodwill)
+        button("prosciutto", 550, 100, 200, 50, 3, 30, pink, white, "part 12 a", 18, black, goodwill)
                 
+        game_display.blit(pheasant, (50, 175))
+        game_display.blit(pickle, (300, 175))
+        game_display.blit(prosciutto, (550, 175))
+                        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -1208,7 +1259,7 @@ def part_13(goodwill):
         goodwill_meter(goodwill)
         
         button("Watch a play", 400, 215, 350, 40, 2, 30, black, pink, action1, 16, white, goodwill)
-        button("Go jousting", 400, 260, 350, 40, 2, 30, black, pink, action2, 16, white, goodwill)
+        button("Go hunting", 400, 260, 350, 40, 2, 30, black, pink, action2, 16, white, goodwill)
         button("Take a nap", 400, 305, 350, 40, 2, 30, black, pink, action3, 16, white, goodwill)   
         
         for event in pygame.event.get():
@@ -1267,7 +1318,7 @@ def part_14(goodwill):
         display_dialogue(part14_line1)
         goodwill_meter(goodwill)
         
-        if goodwill < 30:
+        if goodwill < 50:
             action = "ending 4"
         else:
             action = "ending 5"
@@ -1305,10 +1356,8 @@ def ending_2(goodwill):
     running = True
     while running:
         game_display.fill(black)
+        game_display.blit(restaurant, (240, 100))
         
-        text = render_text("Success", font_file, white, 20)
-        game_display.blit(text, (350, 50))
-    
         dialogue_box()
         display_dialogue(ending2_line1)
         goodwill_meter(goodwill)
@@ -1328,8 +1377,8 @@ def ending_3(goodwill):
     while running:
         game_display.fill(black)
         
-        text = render_text("Failure", font_file, white, 20)
-        game_display.blit(text, (350, 50))
+        game_display.blit(guillotine, (250, 80))
+        
         
         dialogue_box()
         display_dialogue(ending3_line1)
@@ -1347,16 +1396,15 @@ def ending_4(goodwill):
     running = True
     while running:
         game_display.fill(black)
-
-        text = render_text("Failure", font_file, white, 20)
-        game_display.blit(text, (350, 50))
+        
+        game_display.blit(guillotine, (250, 80))
                 
         dialogue_box()
         display_dialogue(ending4_line1)
         goodwill_meter(goodwill)
+        
         button("Next", 550, 570, 150, 50, 2, 30, black, pink, "main menu", 18, white, filled_amount)  
 
-        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -1369,8 +1417,7 @@ def ending_5(goodwill):
     while running:
         game_display.fill(black)
 
-        text = render_text("success", font_file, white, 20)
-        game_display.blit(text, (350, 50))
+        game_display.blit(bed, (200, 100))
                 
         dialogue_box()
         display_dialogue(ending5_line1)
@@ -1385,4 +1432,4 @@ def ending_5(goodwill):
         
         pygame.display.update()    
 
-part_3("b", 60)
+ending_5(50)
