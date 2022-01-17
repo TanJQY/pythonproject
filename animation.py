@@ -1570,4 +1570,4 @@ def ending_5(goodwill):
 
 
         
-ending_5(50)
+instructions()
