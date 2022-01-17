@@ -2,11 +2,17 @@
 import pygame
 pygame.init()
 import random
-from menu import
+import menu
 
 #declares and initializes variables for displaying the window
 window_size = (800, 650)
 game_display = pygame.display.set_mode(window_size)
+
+#sets title and icon
+pygame.display.set_caption("King Shiba")
+game_icon = pygame.image.load("game icon.png")
+game_icon = pygame.transform.scale(game_icon, (8, 8))
+pygame.display.set_icon(game_icon)
 
 #declares variables for text and opens text file
 dialogues = open("dialogues.txt","r")
@@ -1570,4 +1576,4 @@ def ending_5(goodwill):
 
 
         
-instructions()
+animation()
