@@ -141,7 +141,7 @@ def goodwill_meter(filled):
     
     else:
         #filled portion is mutliplied by 2 since 1% of the bar is 2 pixels
-        pygame.draw.rect(game_display, white, (x, y, (filled*2), height), border_radius = radius)
+        pygame.draw.rect(game_display, white, (x, y, (filled*2), height), border_radius = 30)
     
     #draws border
     pygame.draw.rect(game_display, pink, (x, y, length, height), width = 2, border_radius = 30)
